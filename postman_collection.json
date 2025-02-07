@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "6a2e2ea2-cbe7-44aa-a271-dc28a51235d8",
+		"name": "Billing Engine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27716159"
+	},
+	"item": [
+		{
+			"name": "Create Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 5000000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8088/api/v1/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					]
+				},
+				"description": "Creates a new loan with the specified amount. Only accepts 5,000,000 as per requirements."
+			},
+			"response": [
+				{
+					"name": "Create Loan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 5000000\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/loans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"loans"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Feb 2025 14:09:19 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "219"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"ID\": 4,\n    \"CreatedAt\": \"2025-02-07T19:39:19.4531656+05:30\",\n    \"UpdatedAt\": \"2025-02-07T19:39:19.4531656+05:30\",\n    \"DeletedAt\": null,\n    \"amount\": 5000000,\n    \"interest\": 10,\n    \"start_date\": \"2025-02-07T19:39:19.4519618+05:30\",\n    \"status\": \"ACTIVE\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Outstanding Amount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/api/v1/loans/3/outstanding",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v1",
+						"loans",
+						"3",
+						"outstanding"
+					]
+				},
+				"description": "Gets the current outstanding amount for the specified loan."
+			},
+			"response": [
+				{
+					"name": "Get Outstanding Amount",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/loans/3/outstanding",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"loans",
+								"3",
+								"outstanding"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Feb 2025 13:57:31 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"1_outstanding\": 5390000,\n    \"2_loanDetails\": {\n        \"ID\": 3,\n        \"CreatedAt\": \"2025-02-07T19:25:13.309976+05:30\",\n        \"UpdatedAt\": \"2025-02-07T19:25:13.309976+05:30\",\n        \"DeletedAt\": null,\n        \"amount\": 5000000,\n        \"interest\": 10,\n        \"start_date\": \"2025-02-07T19:25:13.309106+05:30\",\n        \"status\": \"ACTIVE\",\n        \"schedules\": [\n            {\n                \"ID\": 102,\n                \"CreatedAt\": \"2025-02-07T19:25:13.318604+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.318604+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 2,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-02-21T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 103,\n                \"CreatedAt\": \"2025-02-07T19:25:13.319131+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.319131+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 3,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-02-28T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 104,\n                \"CreatedAt\": \"2025-02-07T19:25:13.319131+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.319131+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 4,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-03-07T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 105,\n                \"CreatedAt\": \"2025-02-07T19:25:13.319652+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.319652+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 5,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-03-14T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 106,\n                \"CreatedAt\": \"2025-02-07T19:25:13.320223+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.320223+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 6,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-03-21T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 107,\n                \"CreatedAt\": \"2025-02-07T19:25:13.320223+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.320223+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 7,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-03-28T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 108,\n                \"CreatedAt\": \"2025-02-07T19:25:13.320223+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.320223+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 8,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-04-04T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 109,\n                \"CreatedAt\": \"2025-02-07T19:25:13.32073+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.32073+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 9,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-04-11T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 110,\n                \"CreatedAt\": \"2025-02-07T19:25:13.320897+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.320897+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 10,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-04-18T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 111,\n                \"CreatedAt\": \"2025-02-07T19:25:13.320897+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.320897+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 11,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-04-25T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 112,\n                \"CreatedAt\": \"2025-02-07T19:25:13.321556+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.321556+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 12,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-05-02T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 113,\n                \"CreatedAt\": \"2025-02-07T19:25:13.321556+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.321556+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 13,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-05-09T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 114,\n                \"CreatedAt\": \"2025-02-07T19:25:13.322066+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.322066+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 14,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-05-16T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 115,\n                \"CreatedAt\": \"2025-02-07T19:25:13.322066+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.322066+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 15,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-05-23T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 116,\n                \"CreatedAt\": \"2025-02-07T19:25:13.322589+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.322589+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 16,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-05-30T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 117,\n                \"CreatedAt\": \"2025-02-07T19:25:13.32312+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.32312+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 17,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-06-06T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 118,\n                \"CreatedAt\": \"2025-02-07T19:25:13.323667+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.323667+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 18,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-06-13T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 119,\n                \"CreatedAt\": \"2025-02-07T19:25:13.323667+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.323667+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 19,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-06-20T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 120,\n                \"CreatedAt\": \"2025-02-07T19:25:13.324186+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.324186+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 20,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-06-27T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 121,\n                \"CreatedAt\": \"2025-02-07T19:25:13.324186+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.324186+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 21,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-07-04T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 122,\n                \"CreatedAt\": \"2025-02-07T19:25:13.324704+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.324704+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 22,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-07-11T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 123,\n                \"CreatedAt\": \"2025-02-07T19:25:13.324704+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.324704+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 23,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-07-18T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 124,\n                \"CreatedAt\": \"2025-02-07T19:25:13.325265+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.325265+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 24,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-07-25T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 125,\n                \"CreatedAt\": \"2025-02-07T19:25:13.325265+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.325265+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 25,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-08-01T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 126,\n                \"CreatedAt\": \"2025-02-07T19:25:13.325803+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.325803+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 26,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-08-08T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 127,\n                \"CreatedAt\": \"2025-02-07T19:25:13.326336+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.326336+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 27,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-08-15T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 128,\n                \"CreatedAt\": \"2025-02-07T19:25:13.326336+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.326336+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 28,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-08-22T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 129,\n                \"CreatedAt\": \"2025-02-07T19:25:13.326923+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.326923+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 29,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-08-29T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 130,\n                \"CreatedAt\": \"2025-02-07T19:25:13.326923+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.326923+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 30,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-09-05T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 131,\n                \"CreatedAt\": \"2025-02-07T19:25:13.327437+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.327437+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 31,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-09-12T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 132,\n                \"CreatedAt\": \"2025-02-07T19:25:13.327437+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.327437+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 32,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-09-19T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 133,\n                \"CreatedAt\": \"2025-02-07T19:25:13.327978+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.327978+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 33,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-09-26T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 134,\n                \"CreatedAt\": \"2025-02-07T19:25:13.327978+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.327978+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 34,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-10-03T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 135,\n                \"CreatedAt\": \"2025-02-07T19:25:13.328514+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.328514+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 35,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-10-10T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 136,\n                \"CreatedAt\": \"2025-02-07T19:25:13.329059+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.329059+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 36,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-10-17T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 137,\n                \"CreatedAt\": \"2025-02-07T19:25:13.329059+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.329059+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 37,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-10-24T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 138,\n                \"CreatedAt\": \"2025-02-07T19:25:13.329709+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.329709+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 38,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-10-31T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 139,\n                \"CreatedAt\": \"2025-02-07T19:25:13.329709+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.329709+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 39,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-11-07T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 140,\n                \"CreatedAt\": \"2025-02-07T19:25:13.330326+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.330326+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 40,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-11-14T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 141,\n                \"CreatedAt\": \"2025-02-07T19:25:13.330326+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.330326+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 41,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-11-21T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 142,\n                \"CreatedAt\": \"2025-02-07T19:25:13.330837+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.330837+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 42,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-11-28T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 143,\n                \"CreatedAt\": \"2025-02-07T19:25:13.330837+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.330837+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 43,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-12-05T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 144,\n                \"CreatedAt\": \"2025-02-07T19:25:13.331376+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.331376+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 44,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-12-12T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 145,\n                \"CreatedAt\": \"2025-02-07T19:25:13.331376+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.331376+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 45,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-12-19T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 146,\n                \"CreatedAt\": \"2025-02-07T19:25:13.331909+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.331909+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 46,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-12-26T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 147,\n                \"CreatedAt\": \"2025-02-07T19:25:13.331909+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.331909+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 47,\n                \"due_amount\": 110000,\n                \"due_date\": \"2026-01-02T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 148,\n                \"CreatedAt\": \"2025-02-07T19:25:13.332439+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.332439+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 48,\n                \"due_amount\": 110000,\n                \"due_date\": \"2026-01-09T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 149,\n                \"CreatedAt\": \"2025-02-07T19:25:13.332439+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.332439+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 49,\n                \"due_amount\": 110000,\n                \"due_date\": \"2026-01-16T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 150,\n                \"CreatedAt\": \"2025-02-07T19:25:13.332439+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:25:13.332439+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 50,\n                \"due_amount\": 110000,\n                \"due_date\": \"2026-01-23T19:25:13.309106+05:30\",\n                \"status\": \"PENDING\"\n            },\n            {\n                \"ID\": 101,\n                \"CreatedAt\": \"2025-02-07T19:25:13.314935+05:30\",\n                \"UpdatedAt\": \"2025-02-07T19:27:28.236895+05:30\",\n                \"DeletedAt\": null,\n                \"loan_id\": 3,\n                \"week_number\": 1,\n                \"due_amount\": 110000,\n                \"due_date\": \"2025-02-14T19:25:13.309106+05:30\",\n                \"status\": \"PAID\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Delinquency Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8088/api/v1/loans/1/delinquency",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v1",
+						"loans",
+						"1",
+						"delinquency"
+					]
+				},
+				"description": "Checks if the loan is delinquent (2 or more consecutive missed payments)."
+			},
+			"response": [
+				{
+					"name": "Get Delinquency Status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/loans/1/delinquency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"loans",
+								"1",
+								"delinquency"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Feb 2025 13:55:51 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"outstanding\": 5280000,\n    \"is_delinquent\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Make Payment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 110000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8088/api/v1/loans/3/payments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v1",
+						"loans",
+						"3",
+						"payments"
+					]
+				},
+				"description": "Makes a payment for the specified loan. Amount must match the scheduled payment amount."
+			},
+			"response": [
+				{
+					"name": "Make Payment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 110000\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/loans/3/payments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"loans",
+								"3",
+								"payments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Content-Length, Accept-Encoding, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, PUT, DELETE"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 07 Feb 2025 13:57:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"payment successful\"\n}"
+				}
+			]
+		}
+	]
+}
